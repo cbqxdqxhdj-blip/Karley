@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Karley</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+/* Rainbow animated text */
+.rainbow {
+    font-size: 100px;
+    font-weight: bold;
+    background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, violet);
+    background-size: 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: rainbow 6s linear infinite;
+}
+
+@keyframes rainbow {
+    0% {background-position: 0%}
+    100% {background-position: 400%}
+}
+
+/* Typewriter text */
+.typewriter {
+    font-size: 55px;
+    margin-top: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 4px solid white;
+    width: 0;
+    animation: typing 3s steps(12, end) forwards, blink 1s infinite;
+}
+
+@keyframes typing {
+    from {width: 0}
+    to {width: 12ch}
+}
+
+@keyframes blink {
+    50% {border-color: transparent}
+}
+
+/* Floating hearts */
+.heart {
+    position: absolute;
+    color: pink;
+    font-size: 30px;
+    animation: floatUp 6s linear infinite;
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(100vh);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-10vh);
+        opacity: 0;
+    }
+}
+
+/* Sparkles */
+.sparkle {
+    position: absolute;
+    color: white;
+    font-size: 12px;
+    animation: sparkle 2s infinite;
+}
+
+@keyframes sparkle {
+    0% {opacity: 0}
+    50% {opacity: 1}
+    100% {opacity: 0}
+}
+</style>
+</head>
+
+<body>
+
+<div class="rainbow">Karley</div>
+<div class="rainbow typewriter">I love you</div>
+
+<script>
+
+/* create floating hearts */
+for (let i = 0; i < 20; i++) {
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (4 + Math.random() * 4) + "s";
+    heart.style.fontSize = (20 + Math.random() * 30) + "px";
+    document.body.appendChild(heart);
+}
+
+/* create sparkles */
+for (let i = 0; i < 40; i++) {
+    let sparkle = document.createElement("div");
+    sparkle.className = "sparkle";
+    sparkle.innerHTML = "✨";
+    sparkle.style.left = Math.random() * 100 + "vw";
+    sparkle.style.top = Math.random() * 100 + "vh";
+    sparkle.style.animationDelay = Math.random() * 2 + "s";
+    document.body.appendChild(sparkle);
+}
+
+</script>
+
+</body>
+</html>
